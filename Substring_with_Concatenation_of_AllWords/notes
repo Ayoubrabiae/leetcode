@@ -1,0 +1,15 @@
+// check if the string or the slice are empty
+// intialize res variable to hold the indexes
+// convert words slice to a map key string and value number
+// intialize lenOfWord
+// intialize lenOfSub (len(words) * words[0])
+// intilize left and right variables
+// create a function his name compare
+    // take substring and map and lenOfWord
+    // copy the map (wordsMapCopy)
+    // intialize left = 0 and right = lenOfWord
+    // loop over the substring (right < len(substring))
+    // if any word doesn't exist in the wordsMapCopy return false
+    // in the end return true
+// make a loop to range over the string (right < len(s))
+    // if the substring equal the map add the left index to the res
