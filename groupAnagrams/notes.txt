@@ -1,0 +1,8 @@
+// if the strs are empty return an empty string
+// create a function sort the chars in a word (sortize)
+// create a map wordsMap [string][]string
+// loop over the words
+// put the sorted word as a key and the word as value
+// create a slice wordsSlice [][]string
+// loop over the wordsMap
+// add each value item to the wordsSlice
