@@ -1,0 +1,4 @@
+// convert s to a charsMap [rune]int
+// loop over the t and check each char if it exist in the charsMap
+// if not return false
+// in the end return true
