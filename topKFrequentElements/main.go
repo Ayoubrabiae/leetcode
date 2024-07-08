@@ -8,32 +8,49 @@ func topKFrequent(nums []int, k int) []int {
 	}
 
 	numsMap := map[int]int{}
+	reversedMap := map[int][]int{}
+	keysSlc := []int{}
+	res := []int{}
+
 	for _, num := range nums {
 		numsMap[num]++
 	}
 
-	reversedMap := map[int]int{}
 	for key, num := range numsMap {
-		reversedMap[num] = key
+		reversedMap[num] = append(reversedMap[num], key)
 	}
 
-	res := []int{}
-	for _, num := range reversedMap {
-		if k == 0 {
-			break
-		}
-		res = append(res, num)
-		k--
+	for key := range reversedMap {
+		keysSlc = append(keysSlc, key)
 	}
+
+	sortize(keysSlc)
 
 	fmt.Println(numsMap)
 	fmt.Println(reversedMap)
+	fmt.Println(keysSlc)
 
-	return res
+	for i := 0; i < len(keysSlc); i++ {
+		res = append(res, reversedMap[keysSlc[i]]...)
+	}
+
+	return res[:k]
+}
+
+func sortize(nums []int) {
+	for i := 0; i < len(nums); i++ {
+		for k := 0; k < len(nums); k++ {
+			if nums[k] < nums[i] {
+				temp := nums[k]
+				nums[k] = nums[i]
+				nums[i] = temp
+			}
+		}
+	}
 }
 
 func main() {
-	nums := []int{1, 1, 1, 2, 2, 2, 2, 2, 1, 3}
+	nums := []int{4, 1, -1, 2, -1, 2, 3}
 	k := 2
 	res := topKFrequent(nums, k)
 
