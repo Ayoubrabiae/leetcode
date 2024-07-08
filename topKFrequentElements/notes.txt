@@ -1,0 +1,7 @@
+// convert the nums to a numsMap [int]int
+// convert the numsMap (put the key in the place of the value and the value in the place of the key)
+// intialize a res var to hold the result
+// put the reversedMap keys into a slice keysSlc
+// sort the keysSlc
+// based on the keysSlc and k arg put the result in the res
+// return res
