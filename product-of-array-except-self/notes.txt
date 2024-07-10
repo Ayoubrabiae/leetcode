@@ -1,0 +1,21 @@
+
+// create two arrs: suffixArr and prefixArr with the same length of the giveen slice
+// create two variables to access our arr and the suffix and prefix Arrays
+// left var to access prefixArr it start from -1
+// right var to access suffixArr it start from len(nums)-1
+// loop over our arr (i < len(arr))
+    // if the left are less than the index-1 
+        // increase it and run the prefix func
+    // if the right are more than index+1 
+        // decrement it and run the suffix func
+    // else
+        // arr[i] = prefix[left] * suffix[right]
+
+
+// prefix func 
+// take an arr and an index
+// take the elment arr[index] = arr[index] * arr[index-1]
+
+// suffix func
+// take an arr and an index
+// take the element arr[index] = arr[index] * arr[index+1]
