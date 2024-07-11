@@ -1,0 +1,14 @@
+// create a func to check rows
+    // start a loop over the matrix
+        // in each row intialize a map has 1-9
+        // check if the num exist in the map or the value doesn't equal . return false
+
+// create a func to check columns
+    // start a loop over the matrix to go verticaly
+        // in each column intialize a map has 1-9
+        // check if the num exist in the map or the value doesn't equal . return false
+
+// create a func to check boxes
+    // start a loop over the matrix that loop over boxes
+        // in each box intialize a map has 1-9
+        // check if the num exist in the map or the value doesn't equal . return false
