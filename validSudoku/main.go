@@ -46,19 +46,21 @@ func checkCol(board [][]byte) bool {
 }
 
 func checkBox(board [][]byte) bool {
-	for col := 1; col < len(board); {
-		for row := 1; row < len(board); {
-			if row%4 == 0 && col%3 == 0 {
-				col -= 2
-			} else if row%4 != 0 && col%4 != 0 {
-				fmt.Print(string(board[col-1][row-1]))
+	for col := 1; col <= len(board); {
+		for row := 1; ; {
+			fmt.Print(string(board[col-1][row-1]))
+			if row == len(board) && col == len(board) {
+				col++
+				break
+			} else if col%9 == 0 && row%3 == 0 {
+				col -= 8
 				row++
-			} else if row%4 == 0 && col%4 != 0 {
-				row -= 3
+			} else if row%3 == 0 {
+				row -= 2
 				col++
 				fmt.Println()
 			} else {
-				break
+				row++
 			}
 		}
 	}
