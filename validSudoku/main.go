@@ -14,7 +14,7 @@ func checkRow(board [][]byte) bool {
 		numsMap := map[int]bool{}
 		for row := 0; row < len(board[col]); row++ {
 			num := byteToNum(board[col][row])
-			if string(board[col][row]) != "." && num > 9 && num < 1 && numsMap[num] {
+			if string(board[col][row]) != "." && (num > 9 || num < 1 || numsMap[num]) {
 				return false
 			}
 
@@ -32,7 +32,7 @@ func checkCol(board [][]byte) bool {
 		numsMap := map[int]bool{}
 		for col := 0; col < len(board[row]); col++ {
 			num := byteToNum(board[col][row])
-			if string(board[col][row]) != "." && num > 9 && num < 1 && numsMap[num] {
+			if string(board[col][row]) != "." && (num > 9 || num < 1 || numsMap[num]) {
 				return false
 			}
 
@@ -47,8 +47,20 @@ func checkCol(board [][]byte) bool {
 
 func checkBox(board [][]byte) bool {
 	for col := 1; col <= len(board); {
+		numsMap := map[int]bool{}
 		for row := 1; ; {
-			fmt.Print(string(board[col-1][row-1]))
+			num := byteToNum(board[col-1][row-1])
+			if string(board[col-1][row-1]) != "." && (num > 9 || num < 1 || numsMap[num]) {
+				return false
+			}
+
+			if string(board[col-1][row-1]) != "." {
+				numsMap[num] = true
+			}
+
+			if row%3 == 0 && col%3 == 0 {
+				numsMap = map[int]bool{}
+			}
 			if row == len(board) && col == len(board) {
 				col++
 				break
@@ -58,7 +70,6 @@ func checkBox(board [][]byte) bool {
 			} else if row%3 == 0 {
 				row -= 2
 				col++
-				fmt.Println()
 			} else {
 				row++
 			}
@@ -76,7 +87,7 @@ func byteToNum(b byte) int {
 
 func main() {
 	board := [][]byte{
-		{'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+		{'8', '3', '.', '.', '7', '.', '.', '.', '.'},
 		{'6', '.', '.', '1', '9', '5', '.', '.', '.'},
 		{'.', '9', '8', '.', '.', '.', '.', '6', '.'},
 		{'8', '.', '.', '.', '6', '.', '.', '.', '3'},
@@ -87,7 +98,7 @@ func main() {
 		{'.', '.', '.', '.', '8', '.', '.', '7', '9'},
 	}
 
-	res := checkBox(board)
+	res := isValidSudoku(board)
 
 	fmt.Println(res)
 }
