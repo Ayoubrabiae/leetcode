@@ -1,0 +1,4 @@
+// loop on the numbers
+    // take the num
+    // make the neededNum (target - num)
+    // look in the arry on the needed num using binary search
